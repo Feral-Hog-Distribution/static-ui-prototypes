@@ -1,140 +1,125 @@
-#module_boop {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center; }
-  #module_boop button {
-    display: block;
-    -webkit-appearance: none;
-    border-radius: 100%;
-    border-color: brown;
-    background-color: brown;
-    width: 80vw;
-    height: 80vw;
-    font-size: 10vw;
-    margin: auto;
-    transform: scale(1);
-    transition: transform var(--animation-duration); }
-    #module_boop button:active {
-      transform: scale(0.75); }
-    #module_boop button:focus {
-      box-shadow: 0 0 20px green; }
+html {
+  --root-spacing: 1rem;
+  --font-family: 'Exo2';
+  --animation-duration: 0.05s;
+  font-size: 16px;
+  /* Colours */
+  --white: #fff2f4;
+  --black: #0f0e0e;
+  --light-pink: #f17d94;
+  --pink: #e41345;
+  --dark-pink: #870024;
+  --blue: #24b3e6;
+  --yellow: #FFE442; }
 
-#module_range {
-  height: 100vh; }
-  #module_range .row {
-    height: 100vh; }
-  #module_range .column {
-    flex-grow: 1;
-    align-content: center;
-    justify-content: center;
-    height: 100%; }
-  #module_range button {
-    flex-basis: 20%;
-    width: 25vw;
-    height: 25vw;
-    margin: auto;
-    font-size: 5vw; }
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: normal;
+  font-weight: 800;
+  src: url("/fonts/subset-Exo2-Black.woff2") format("woff2"); }
 
-.range_container {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 48%;
-  position: relative;
-  /* background-color: white; */
-  width: 100%;
-  margin: auto; }
-  .range_container input {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 100%;
-    height: 25vw;
-    border: none;
-    transform-origin: 50% 50%;
-    transform: translate(-50%, -50%) rotate(90deg);
-    background-color: transparent; }
-  .range_container input::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background-image: url(/img/thumb.svg);
-    border-radius: 4px;
-    background-repeat: no-repeat;
-    background-size: 6rem 3rem;
-    transform: rotate(-90deg);
-    width: 6rem;
-    height: 3rem; }
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: italic;
+  font-weight: 800;
+  src: url("/fonts/subset-Exo2-BlackItalic.woff2") format("woff2"); }
 
-#module_multi-range {
-  height: 100vh; }
-  #module_multi-range .row {
-    height: 100vh;
-    width: 100vw; }
-  #module_multi-range .column {
-    flex-grow: 1;
-    flex-basis: 33.33%;
-    align-content: center;
-    justify-content: center;
-    height: 100%; }
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: normal;
+  font-weight: 700;
+  src: url("/fonts/subset-Exo2-Bold.woff2") format("woff2"); }
 
-#module_target {
-  height: 100%; }
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: italic;
+  font-weight: 700;
+  src: url("/fonts/subset-Exo2-BoldItalic.woff2") format("woff2"); }
 
-.target_container {
-  position: relative;
-  height: 100%; }
-  .target_container button {
-    position: absolute;
-    transform: translate(-50%, -50%); }
-  .target_container [name="x"] {
-    top: 50%; }
-  .target_container [name="y"] {
-    left: 50%; }
-  .target_container [name="y"][value="-1"] {
-    top: 0; }
-  .target_container [name="y"][value="1"] {
-    bottom: 0; }
-  .target_container [name="x"][value="-1"] {
-    left: 0; }
-  .target_container [name="x"][value="1"] {
-    right: 0; }
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: normal;
+  font-weight: 600;
+  src: url("/fonts/subset-Exo2-SemiBold.woff2") format("woff2"); }
 
-.target_screen {
-  background-color: var(--blue);
-  border-radius: 100%;
-  width: 80%;
-  height: 0;
-  padding-bottom: 80%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: italic;
+  font-weight: 600;
+  src: url("/fonts/subset-Exo2-SemiBoldItalic.woff2") format("woff2"); }
 
-.target_reticle {
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  position: absolute; }
-  .target_reticle::before, .target_reticle::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--white); }
-  .target_reticle::before {
-    width: 100%;
-    height: 25%; }
-  .target_reticle::after {
-    width: 25%;
-    height: 100%; }
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: normal;
+  font-weight: 500;
+  src: url("/fonts/subset-Exo2-Medium.woff2") format("woff2"); }
 
-.target {
-  position: absolute;
-  display: block;
-  width: 1rem;
-  height: 1rem;
-  border-width: .25rem;
-  border-color: var(--yellow);
-  border-style: solid;
-  border-radius: 100%; }
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: italic;
+  font-weight: 500;
+  src: url("/fonts/subset-Exo2-MediumItalic.woff2") format("woff2"); }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: normal;
+  font-weight: 400;
+  src: url("/fonts/subset-Exo2-Regular.woff2") format("woff2"); }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: italic;
+  font-weight: 400;
+  src: url("/fonts/subset-Exo2-RegularItalic.woff2") format("woff2"); }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: normal;
+  font-weight: 300;
+  src: url("/fonts/subset-Exo2-Thin.woff2") format("woff2"); }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: italic;
+  font-weight: 300;
+  src: url("/fonts/subset-Exo2-ThinItalic.woff2") format("woff2"); }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: normal;
+  font-weight: 200;
+  src: url("/fonts/subset-Exo2-Light.woff2") format("woff2"); }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: italic;
+  font-weight: 200;
+  src: url("/fonts/subset-Exo2-LightItalic.woff2") format("woff2"); }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: normal;
+  font-weight: 100;
+  src: url("/fonts/subset-Exo2-ExtraLight.woff2") format("woff2"); }
+
+@font-face {
+  font-display: swap;
+  font-family: 'Exo2';
+  font-style: italic;
+  font-weight: 100;
+  src: url("/fonts/subset-Exo2-ExtraLightItalic.woff2") format("woff2"); }

@@ -1,3 +1,13 @@
+button {
+  transform: scale(1);
+  transition: transform var(--animation-duration); }
+  button:active {
+    transform: scale(0.75); }
+
+button.circular {
+  display: block;
+  border-radius: 100%; }
+
 html {
   --root-spacing: 1rem;
   --font-family: 'Exo2';
@@ -138,7 +148,81 @@ main {
 
 button {
   border: none;
-  border-radius: .25rem; }
+  display: inline-block;
+  min-width: 3rem;
+  min-height: 3rem;
+  background-color: transparent; }
+  button span {
+    display: none; }
+
+button.circular {
+  background-color: var(--white); }
+
+button.arrow {
+  color: var(--pink); }
+  button.arrow::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%; }
+  button.arrow[data-direction="n"]::after {
+    height: 0;
+    width: 0;
+    color: inherit;
+    border-top: none;
+    border-right: transparent solid 1.5rem;
+    border-bottom: currentColor solid 3rem;
+    border-left: transparent solid 1.5rem; }
+  button.arrow[data-direction="e"]::after {
+    height: 0;
+    width: 0;
+    color: inherit;
+    border-top: transparent solid 1.5rem;
+    border-right: none;
+    border-bottom: transparent solid 1.5rem;
+    border-left: currentColor solid 3rem; }
+  button.arrow[data-direction="s"]::after {
+    height: 0;
+    width: 0;
+    color: inherit;
+    border-top: currentColor solid 3rem;
+    border-right: transparent solid 1.5rem;
+    border-bottom: none;
+    border-left: transparent solid 1.5rem; }
+  button.arrow[data-direction="w"]::after {
+    height: 0;
+    width: 0;
+    color: inherit;
+    border-top: transparent solid 1.5rem;
+    border-right: currentColor solid 3rem;
+    border-bottom: transparent solid 1.5rem;
+    border-left: none; }
+
+button.add,
+button.subtract {
+  position: relative; }
+  button.add::after,
+  button.subtract::after {
+    content: '';
+    background-color: var(--pink);
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 25%;
+    transform: translate(-50%, -50%); }
+
+button.add::before {
+  content: '';
+  background-color: var(--pink);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 25%;
+  height: 100%;
+  transform: translate(-50%, -50%); }
 
 nav ul {
   list-style: disc;
