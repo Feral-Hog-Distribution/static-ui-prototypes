@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="/css/client.css">
+<main>
+  <form id="module_range" class="module" action="#ranged">
+    <button type="button" name="input" value="-1">UP</button>
+    <div class="range_container">
+      <input id="field_range" type="range" min="0" max="100">
+    </div>
+    <button type="button" name="input" value="1">DOWN</button>
+  </form>
+  <script>
+    let form = document.querySelector('#module_range');
+    let field_range = document.querySelector('#field_range');
+
+    function handleClicks(event) {
+      let elem = event.target;
+      if (elem.matches('button')) {
+        moveRange(elem.value);
+      }
+    }
+
+    function moveRange(amount) {
+      let currentValue = parseInt(field_range.value);
+      currentValue += parseInt(amount);
+      field_range.value = currentValue;
+    }
+
+    function noOp(event) {
+      event.preventDefault();
+    }
+
+    form.addEventListener('click', handleClicks);
+    field_range.addEventListener('mousedown', noOp);
+    field_range.addEventListener('touchstart', noOp);
+  </script>
+</main>

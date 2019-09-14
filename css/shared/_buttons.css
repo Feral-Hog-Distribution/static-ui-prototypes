@@ -1,3 +1,4 @@
 button {
-  font-family: var(--font-family);
+  border: none;
+  border-radius: .25rem;
 }

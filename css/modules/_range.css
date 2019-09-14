@@ -1,0 +1,49 @@
+#module_range {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.range_container {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 48%;
+  position: relative;
+  /* background-color: white; */
+  height: 48vh;
+  width: 48vh;
+  margin: auto;
+}
+
+.range_container input {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 100%;
+  height: 25vw;
+  border: none;
+  transform-origin: 50% 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  background-color: transparent;
+}
+
+.range_container input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: orange;
+  width: 5vw;
+  height: 25vw;
+}
+
+#module_range button {
+  flex-basis: 20%;
+  width: 25vw;
+  height: 25vw;
+  margin: auto;
+  font-size: 5vw;
+}
+
+#field_range {
+
+}
