@@ -37,9 +37,9 @@
 
 .range_container input::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background-color: orange;
-  width: 5vw;
-  height: 25vw;
+  background-color: var(--pink);
+  width: 3rem;
+  height: 3rem;
 }
 
 #module_range button {
