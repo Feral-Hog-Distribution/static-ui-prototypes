@@ -156,7 +156,8 @@ html {
 main {
   width: 100vw;
   height: 100vh;
-  background-color: var(--black); }
+  background-color: var(--black);
+  color: var(--white); }
 
 button {
   border: none;
@@ -251,6 +252,18 @@ nav ul {
 *:focus {
   outline: none; }
 
+.display_number {
+  min-width: 8rem;
+  font-size: 3rem;
+  font-weight: 900;
+  padding: .5rem 1rem;
+  padding-bottom: 1rem;
+  border: 8px var(--blue) solid;
+  display: inline-block;
+  border-radius: 3rem 1rem;
+  text-align: center;
+  box-shadow: 0px 4px 0px 0px var(--yellow); }
+
 #module_boop {
   display: flex;
   height: 100%;
@@ -295,7 +308,6 @@ nav ul {
   flex-shrink: 1;
   flex-basis: 48%;
   position: relative;
-  /* background-color: white; */
   width: 100%;
   margin: auto; }
   .range_container input {
@@ -310,13 +322,9 @@ nav ul {
     background-color: transparent; }
   .range_container input::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background-image: url(/img/thumb.svg);
-    border-radius: 4px;
-    background-repeat: no-repeat;
-    background-size: 6rem 3rem;
-    transform: rotate(-90deg);
-    width: 6rem;
-    height: 3rem; }
+    background-color: orange;
+    width: 5vw;
+    height: 25vw; }
 
 #module_multi-range {
   height: 100vh; }
@@ -329,6 +337,39 @@ nav ul {
     align-content: center;
     justify-content: center;
     height: 100%; }
+
+#module_range_drag .row {
+  width: 100%; }
+
+#module_range_drag .column {
+  width: 100%; }
+
+.range_drag_container {
+  width: 100%;
+  display: flex; }
+  .range_drag_container input {
+    flex-grow: 1;
+    max-width: 30rem;
+    background-color: transparent;
+    height: 500px; }
+  .range_drag_container input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    background-image: url(/img/thumb.svg);
+    border-radius: 4px;
+    background-repeat: no-repeat;
+    background-size: 6rem 3rem;
+    position: relative;
+    width: 6rem;
+    height: 10rem;
+    transform-origin: 50% 50%;
+    transform: translate(-50%, -50%) rotate(90deg) scale(1); }
+    .range_drag_container input::-webkit-slider-thumb:active {
+      transform-origin: 50% 50%;
+      transform: translate(-50%, -50%) rotate(90deg) scale(0.9); }
+  .range_drag_container input::-webkit-slider-runnable-track {
+    background-color: var(--blue);
+    height: .5rem;
+    border-radius: calc(.5rem / 2); }
 
 #module_target {
   height: 100%; }
