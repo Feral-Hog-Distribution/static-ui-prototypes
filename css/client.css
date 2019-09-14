@@ -4,9 +4,15 @@ button {
   button:active {
     transform: scale(0.75); }
 
-button.circular {
+button.circular, .target_screen {
   display: block;
   border-radius: 100%; }
+
+.target {
+  display: block;
+  border-radius: 100%;
+  border-style: solid;
+  border-width: 25%; }
 
 html {
   --root-spacing: 1rem;
@@ -19,7 +25,13 @@ html {
   --pink: #e41345;
   --dark-pink: #870024;
   --blue: #24b3e6;
-  --yellow: #FFE442; }
+  --yellow: #FFE442;
+  /* buttons */
+  --button-dimension: 3rem;
+  --button-square-width: var(--button-dimension);
+  --button-square-height: var(--button-dimension);
+  --half-button-square-width: calc(var(--button-square-width) / 2);
+  --half-button-square-height: calc(var(--button-square-height) / 2); }
 
 @font-face {
   font-display: swap;
@@ -148,8 +160,8 @@ main {
 button {
   border: none;
   display: inline-block;
-  min-width: 3rem;
-  min-height: 3rem;
+  min-width: var(--button-square-width);
+  min-height: var(--button-square-height);
   background-color: transparent; }
   button span {
     display: none; }
@@ -169,32 +181,32 @@ button.arrow {
     width: 0;
     color: inherit;
     border-top: none;
-    border-right: transparent solid 1.5rem;
-    border-bottom: currentColor solid 3rem;
-    border-left: transparent solid 1.5rem; }
+    border-right: transparent solid calc(var(--button-square-width)/2);
+    border-bottom: currentColor solid var(--button-square-height);
+    border-left: transparent solid calc(var(--button-square-width)/2); }
   button.arrow[data-direction="e"]::after {
     height: 0;
     width: 0;
     color: inherit;
-    border-top: transparent solid 1.5rem;
+    border-top: transparent solid calc(var(--button-square-height)/2);
     border-right: none;
-    border-bottom: transparent solid 1.5rem;
-    border-left: currentColor solid 3rem; }
+    border-bottom: transparent solid calc(var(--button-square-height)/2);
+    border-left: currentColor solid var(--button-square-width); }
   button.arrow[data-direction="s"]::after {
     height: 0;
     width: 0;
     color: inherit;
-    border-top: currentColor solid 3rem;
-    border-right: transparent solid 1.5rem;
+    border-top: currentColor solid var(--button-square-height);
+    border-right: transparent solid calc(var(--button-square-width)/2);
     border-bottom: none;
-    border-left: transparent solid 1.5rem; }
+    border-left: transparent solid calc(var(--button-square-width)/2); }
   button.arrow[data-direction="w"]::after {
     height: 0;
     width: 0;
     color: inherit;
-    border-top: transparent solid 1.5rem;
-    border-right: currentColor solid 3rem;
-    border-bottom: transparent solid 1.5rem;
+    border-top: transparent solid calc(var(--button-square-height)/2);
+    border-right: currentColor solid var(--button-square-width);
+    border-bottom: transparent solid calc(var(--button-square-height)/2);
     border-left: none; }
 
 button.add,
@@ -317,34 +329,40 @@ nav ul {
   height: 100%; }
 
 .target_container {
+  --container-padding-modifier: 1.5;
+  --container-padding-vertical: calc(var(--button-square-height) * var(--container-padding-modifier));
+  --container-padding-horizontal: calc(var(--button-square-width) * var(--container-padding-modifier));
   position: relative;
-  height: 100%; }
+  width: 100vw;
+  height: 100vw;
+  padding-top: var(--container-padding-vertical);
+  padding-right: var(--container-padding-horizontal);
+  padding-bottom: var(--container-padding-vertical);
+  padding-left: var(--container-padding-horizontal); }
   .target_container button {
-    position: absolute;
-    transform: translate(-50%, -50%); }
+    position: absolute; }
   .target_container [name="x"] {
-    top: 50%; }
+    top: 50%;
+    margin-top: calc( var(--half-button-square-height) * -1); }
   .target_container [name="y"] {
-    left: 50%; }
+    left: 50%;
+    margin-left: calc( var(--half-button-square-height) * -1); }
   .target_container [name="y"][value="-1"] {
-    top: 0; }
+    top: calc( calc( var(--container-padding-vertical) - var(--button-square-height) ) / 2); }
   .target_container [name="y"][value="1"] {
-    bottom: 0; }
+    bottom: calc( calc( var(--container-padding-vertical) - var(--button-square-height) ) / 2); }
   .target_container [name="x"][value="-1"] {
-    left: 0; }
+    left: calc( calc( var(--container-padding-horizontal) - var(--button-square-width) ) / 2); }
   .target_container [name="x"][value="1"] {
-    right: 0; }
+    right: calc( calc( var(--container-padding-horizontal) - var(--button-square-width) ) / 2); }
 
 .target_screen {
   background-color: var(--blue);
-  border-radius: 100%;
-  width: 80%;
-  height: 0;
-  padding-bottom: 80%;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); }
+  top: var(--container-padding-vertical);
+  right: var(--container-padding-horizontal);
+  bottom: var(--container-padding-vertical);
+  left: var(--container-padding-horizontal); }
 
 .target_reticle {
   display: block;
@@ -367,10 +385,8 @@ nav ul {
 
 .target {
   position: absolute;
-  display: block;
   width: 1rem;
   height: 1rem;
-  border-width: .25rem;
   border-color: var(--yellow);
   border-style: solid;
   border-radius: 100%; }

@@ -11,4 +11,11 @@ html {
   --dark-pink: #870024;
   --blue: #24b3e6;
   --yellow: #FFE442;
+
+  /* buttons */
+  --button-dimension: 3rem;
+  --button-square-width: var(--button-dimension);
+  --button-square-height: var(--button-dimension);
+  --half-button-square-width: calc(var(--button-square-width) / 2);
+  --half-button-square-height: calc(var(--button-square-height) / 2);
 }
