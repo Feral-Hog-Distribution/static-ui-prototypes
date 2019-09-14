@@ -37,8 +37,12 @@
 
 .range_container input::-webkit-slider-thumb {
   -webkit-appearance: none;
-  background-color: var(--pink);
-  width: 3rem;
+  background-image: url(/img/thumb.svg);
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  background-size: 6rem 3rem;
+  transform: rotate(-90deg);
+  width: 6rem;
   height: 3rem;
 }
 
