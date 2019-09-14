@@ -184,6 +184,14 @@ button {
   button span {
     display: none; }
 
+button.text {
+  color: var(--yellow);
+  text-transform: uppercase;
+  font-size: var(--button-dimension);
+  padding: calc(var(--button-dimension) / 2);
+  font-weight: 800;
+  letter-spacing: 0.05em; }
+
 button.circular {
   background-color: var(--white); }
 
@@ -252,6 +260,13 @@ button.add::before {
   width: 25%;
   height: 100%;
   transform: translate(-50%, -50%); }
+
+.heading_screen {
+  font-size: var(--button-dimension);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-shadow: 0 2px 0 var(--pink); }
 
 nav ul {
   list-style: disc;
@@ -349,18 +364,18 @@ nav ul {
     display: block;
     -webkit-appearance: none;
     border-radius: 100%;
-    border-color: brown;
-    background-color: brown;
-    width: 80vw;
-    height: 80vw;
+    border-color: var(--pink);
+    background-color: var(--pink);
+    width: 40vw;
+    height: 40vw;
     font-size: 10vw;
     margin: auto;
     transform: scale(1);
     transition: transform var(--animation-duration); }
     #module_boop button:active {
-      transform: scale(0.75); }
+      transform: scale(0.9); }
     #module_boop button:focus {
-      box-shadow: 0 0 20px green; }
+      box-shadow: 0 0 20px var(--dark-pink); }
 
 #module_range {
   height: 100vh; }
@@ -511,3 +526,7 @@ nav ul {
   border-color: var(--yellow);
   border-style: solid;
   border-radius: 100%; }
+
+#screen_landing > * {
+  margin: 0 auto 2rem;
+  text-align: center; }
