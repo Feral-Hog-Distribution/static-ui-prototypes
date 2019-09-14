@@ -6,7 +6,7 @@
       <div class="column">
         <button type="button" name="input" value="-1">UP</button>
         <div class="range_container">
-          <input id="field_range" type="range" min="0" max="100">
+          <input class="field_range" type="range" min="0" max="100">
         </div>
         <button type="button" name="input" value="1">DOWN</button>
       </div>
@@ -14,27 +14,27 @@
   </form>
   <script>
     let form = document.querySelector('#module_range');
-    let field_range = document.querySelector('#field_range');
 
     function handleClicks(event) {
       let elem = event.target;
       if (elem.matches('button')) {
-        moveRange(elem.value);
+        moveRange(elem);
       }
     }
 
-    function moveRange(amount) {
+    function moveRange(elem) {
+      let field_range = elem.parentNode.querySelector('.field_range');
       let currentValue = parseInt(field_range.value);
-      currentValue += parseInt(amount);
+      currentValue += parseInt(elem.value);
       field_range.value = currentValue;
     }
 
-    function noOp(event) {
-      event.preventDefault();
+    function checkForNoOp(event) {
+      if (event.target.matches('[type="range"]')) event.preventDefault();
     }
 
     form.addEventListener('click', handleClicks);
-    field_range.addEventListener('mousedown', noOp);
-    field_range.addEventListener('touchstart', noOp);
+    form.addEventListener('mousedown', checkForNoOp);
+    form.addEventListener('touchstart', checkForNoOp);
   </script>
 </main>
