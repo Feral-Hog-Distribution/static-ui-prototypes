@@ -1,47 +1,68 @@
 <!DOCTYPE html>
 <link rel="stylesheet" href="css/client.css">
-<main>
-  <nav>
-    <ul>
-      <li><a href="#section_buttons">Buttons</a></li>
-      <li><a href="#section_sliders">Sliders</a></li>
-      <li><a href="#section_displays">Displays</a></li>
-    </ul>
-  </nav>
-  <section id="section_buttons">
-    <h2>Directions</h2>
-    <div>
-      <button class="arrow" data-direction="n"><span>North</span></button>
-      <button class="arrow" data-direction="e"><span>East</span></button>
-      <button class="arrow" data-direction="s"><span>South</span></button>
-      <button class="arrow" data-direction="w"><span>West</span></button>
+<style>
+  body {
+    background-color: var(--black);
+    color: var(--white);
+  }
+</style>
+<nav>
+  <ul>
+    <li><a href="#section_buttons">Buttons</a></li>
+    <li><a href="#section_sliders">Sliders</a></li>
+    <li><a href="#section_displays">Displays</a></li>
+  </ul>
+</nav>
+<section id="section_buttons">
+  <h2>Directions</h2>
+  <div>
+    <button class="arrow" data-direction="n"><span>North</span></button>
+    <button class="arrow" data-direction="e"><span>East</span></button>
+    <button class="arrow" data-direction="s"><span>South</span></button>
+    <button class="arrow" data-direction="w"><span>West</span></button>
+  </div>
+  <h2>Additive / Subtractive</h2>
+  <div>
+    <button class="add"><span>Add</span></button>
+    <button class="subtract"><span>Subtract</span></button>
+  </div>
+  <h2>Circular</h2>
+  <div>
+    <button class="circular"><span>Press!</span></button>
+  </div>
+</section>
+<section id="section_sliders">
+  <h2>Sliders</h2>
+  <div class="slider horizontal" data-steps="5" data-min="1" data-max="5">
+    <div class="slider_container">
+      <input type="range" min="1" max="5">
     </div>
-    <h2>Additive / Subtractive</h2>
-    <div>
-      <button class="add"><span>Add</span></button>
-      <button class="subtract"><span>Subtract</span></button>
+  </div>
+  <div class="slider horizontal interactive" data-steps="5" data-min="1" data-max="5">
+    <div class="slider_container">
+      <input type="range" min="1" max="5">
     </div>
-    <h2>Circular</h2>
-    <div>
-      <button class="circular"><span>Press!</span></button>
-    </div>
-  </section>
-  <section id="section_sliders">
-    <h2>Sliders</h2>
-    <form id="module_range_drag" class="module" action="#ranged">
-      <div class="row">
-        <div class="column">
-          <div class="range_drag_container">
-            <input class="field_range" type="range" min="0" max="8">
-          </div>
+  </div>
+  <div class="row">
+    <div class="column">
+      <div class="slider vertical" data-steps="5" data-min="1" data-max="5">
+        <div class="slider_container">
+          <input type="range" min="1" max="5">
         </div>
       </div>
-    </form>
-  </section>
-  <section id="section_displays">
-    <h2>Displays</h2>
-    <div class="display_number">
-      <span>12</span>
     </div>
-  </section>
-</main>
+    <div class="column">
+      <div class="slider vertical interactive" data-steps="5" data-min="1" data-max="5">
+        <div class="slider_container">
+          <input type="range" min="1" max="5">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="section_displays">
+  <h2>Displays</h2>
+  <div class="display_number">
+    <span>12</span>
+  </div>
+</section>
