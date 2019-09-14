@@ -1,0 +1,60 @@
+#module_target {
+  height: 100%;
+}
+.target_container {
+  position: relative;
+  height: 100%;
+}
+
+.target_container button {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.target_container [name="x"] {
+  top: 50%;
+}
+.target_container [name="y"] {
+  left: 50%;
+}
+
+.target_container [name="y"][value="-1"] {
+  top: 0;
+}
+.target_container [name="y"][value="1"] {
+  bottom: 0;
+}
+.target_container [name="x"][value="-1"] {
+  left: 0;
+}
+.target_container [name="x"][value="1"] {
+  right: 0;
+}
+
+.target_screen {
+  background-color: var(--blue);
+  border-radius: 100%;
+  width: 80%;
+  height: 0;
+  padding-bottom: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.target_reticle {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  position: absolute;
+}
+
+.target_reticle::before,
+.target_reticle::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
