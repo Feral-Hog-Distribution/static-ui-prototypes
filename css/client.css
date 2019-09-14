@@ -169,6 +169,9 @@ button.circular, .target_screen {
   padding: 0;
   box-sizing: border-box; }
 
+img {
+  max-width: 100%; }
+
 main {
   width: 100vw;
   height: 100vh;
@@ -262,7 +265,7 @@ button.add::before {
   transform: translate(-50%, -50%); }
 
 .heading_screen {
-  font-size: var(--button-dimension);
+  font-size: 1.75rem;
   letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--white);
@@ -527,6 +530,15 @@ nav ul {
   border-style: solid;
   border-radius: 100%; }
 
-#screen_landing > * {
-  margin: 0 auto 2rem;
-  text-align: center; }
+#screen_landing {
+  padding: 2rem; }
+  #screen_landing > * {
+    margin: 0 auto 2rem;
+    text-align: center; }
+  #screen_landing [src*="/img/logo"] {
+    height: 20vh; }
+  #screen_landing h1 {
+    margin-top: -1rem;
+    margin-bottom: 3rem; }
+  #screen_landing [src*="/img/barnship"] {
+    height: 20vh; }
