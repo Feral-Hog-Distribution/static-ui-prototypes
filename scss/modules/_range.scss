@@ -44,16 +44,8 @@
 
   input::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background-image: url(/img/thumb.svg);
-    border-radius: 4px;
-    background-repeat: no-repeat;
-    background-size: 6rem 3rem;
-    transform: rotate(-90deg);
-    width: 6rem;
-    height: 3rem;
+    background-color: orange;
+    width: 5vw;
+    height: 25vw;
   }
-}
-
-#field_range {
-
 }
