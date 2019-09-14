@@ -1,6 +1,13 @@
 #module_range {
-  display: flex;
-  flex-direction: column;
+  height: 100vh;
+}
+
+#module_range .row {
+  height: 100vh;
+}
+
+#module_range .column {
+  flex-grow: 1;
   align-content: center;
   justify-content: center;
   height: 100%;
@@ -12,8 +19,7 @@
   flex-basis: 48%;
   position: relative;
   /* background-color: white; */
-  height: 48vh;
-  width: 48vh;
+  width: 100%;
   margin: auto;
 }
 

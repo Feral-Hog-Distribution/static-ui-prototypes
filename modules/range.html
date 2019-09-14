@@ -2,11 +2,15 @@
 <link rel="stylesheet" href="/css/client.css">
 <main>
   <form id="module_range" class="module" action="#ranged">
-    <button type="button" name="input" value="-1">UP</button>
-    <div class="range_container">
-      <input id="field_range" type="range" min="0" max="100">
+    <div class="row">
+      <div class="column">
+        <button type="button" name="input" value="-1">UP</button>
+        <div class="range_container">
+          <input id="field_range" type="range" min="0" max="100">
+        </div>
+        <button type="button" name="input" value="1">DOWN</button>
+      </div>
     </div>
-    <button type="button" name="input" value="1">DOWN</button>
   </form>
   <script>
     let form = document.querySelector('#module_range');

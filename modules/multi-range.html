@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="/css/client.css">
+<main>
+  <form id="module_range" class="module" action="#ranged">
+    <div class="row">
+      <div class="column">
+        <button type="button" name="input" value="-1">UP</button>
+        <div class="range_container">
+          <input class="field_range" type="range" min="0" max="100">
+        </div>
+        <button type="button" name="input" value="1">DOWN</button>
+      </div>
+      <div class="column">
+        <button type="button" name="input" value="-1">UP</button>
+        <div class="range_container">
+          <input class="field_range" type="range" min="0" max="100">
+        </div>
+        <button type="button" name="input" value="1">DOWN</button>
+      </div>
+      <div class="column">
+        <button type="button" name="input" value="-1">UP</button>
+        <div class="range_container">
+          <input class="field_range" type="range" min="0" max="100">
+        </div>
+        <button type="button" name="input" value="1">DOWN</button>
+      </div>
+    </div>
+  </form>
+  <script>
+    let form = document.querySelector('#module_range');
+
+    function handleClicks(event) {
+      let elem = event.target;
+      if (elem.matches('button')) {
+        moveRange(elem);
+      }
+    }
+
+    function moveRange(elem) {
+      let field_range = elem.parentNode.querySelector('.field_range');
+      let currentValue = parseInt(field_range.value);
+      currentValue += parseInt(elem.value);
+      field_range.value = currentValue;
+    }
+
+    function checkForNoOp(event) {
+      if (event.target.matches('[type="range"]')) event.preventDefault();
+    }
+
+    form.addEventListener('click', handleClicks);
+    form.addEventListener('mousedown', checkForNoOp);
+    form.addEventListener('touchstart', checkForNoOp);
+  </script>
+</main>
