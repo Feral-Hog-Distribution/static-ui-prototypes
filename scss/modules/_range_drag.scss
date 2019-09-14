@@ -29,7 +29,12 @@
     width: 6rem;
     height: 10rem;
     transform-origin: 50% 50%;
-    transform: translate(-50%, -50%) rotate(90deg);
+    transform: translate(-50%, -50%) rotate(90deg) scale(1);
+
+    &:active {
+      transform-origin: 50% 50%;
+      transform: translate(-50%, -50%) rotate(90deg) scale(0.9);
+    }
   }
 
   input::-webkit-slider-runnable-track {
