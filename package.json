@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Static UI prototypes of the Feral Hog Distribution client",
   "scripts": {
-    "sass": "node-sass scss/client.scss -o css",
+    "sass": "node-sass scss/client.scss -o css -w",
     "start": "npm run sass"
   },
   "repository": {
