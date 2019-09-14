@@ -581,6 +581,23 @@ nav ul {
   #screen_landing [src*="/img/barnship"] {
     height: 20vh; }
 
+@keyframes strobe {
+  0% {
+    stroke-width: 25; }
+  50% {
+    stroke-width: 1; }
+  100% {
+    stroke-width: 25; } }
+
+#screen_progress circle {
+  fill: var(--yellow); }
+  #screen_progress circle.active {
+    fill: var(--white);
+    stroke: var(--white);
+    animation-duration: 3s;
+    animation-name: strobe;
+    animation-iteration-count: infinite; }
+
 #role_allocation strong {
   color: var(--yellow); }
 
