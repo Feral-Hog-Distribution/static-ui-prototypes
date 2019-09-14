@@ -301,8 +301,7 @@ nav ul {
 
 .slider_container {
   background-color: transparent;
-  transform-origin: calc(var(--button-dimension) * 5 / 2) calc(var(--button-dimension) * 5 / 2);
-  background-image: repeating-linear-gradient(90deg, transparent, transparent calc(var(--button-dimension) / 5 * 2), var(--yellow) calc(var(--button-dimension) / 5 * 2), var(--yellow) calc(var(--button-dimension) / 5 * 3), transparent calc(var(--button-dimension) / 5 * 3), transparent var(--button-dimension)); }
+  transform-origin: calc(var(--button-dimension) * 5 / 2) calc(var(--button-dimension) * 5 / 2); }
 
 [type="range"] {
   background-color: transparent; }
@@ -313,26 +312,31 @@ nav ul {
     height: 1rem;
     border-radius: .25rem / 2;
     position: relative; }
-  [type="range"].interactive::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    background-image: url("/img/thumb.svg");
-    border-radius: 0.25rem;
-    background-repeat: no-repeat;
-    background-size: contain;
-    margin-top: -0.5rem;
-    width: var(--button-square-height);
-    min-height: calc(var(--button-square-height)/2);
-    transform: scale(1); }
-  [type="range"].interactive:active::-webkit-slider-thumb {
-    transform: scale(0.9); }
+
+.slider.interactive .slider_container {
+  background-image: repeating-linear-gradient(90deg, transparent, transparent calc(var(--button-dimension) / 15 * 7), var(--yellow) calc(var(--button-dimension) / 15 * 7), var(--yellow) calc(var(--button-dimension) / 15 * 8), transparent calc(var(--button-dimension) / 15 * 8), transparent var(--button-dimension)); }
+
+.slider.interactive [type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-image: url("/img/thumb.svg");
+  border-radius: 0.25rem;
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: -0.5rem;
+  width: var(--button-square-height);
+  min-height: calc(var(--button-square-height)/2);
+  transform: scale(1); }
+
+.slider.interactive [type="range"]:active::-webkit-slider-thumb {
+  transform: scale(0.9); }
 
 .slider.vertical .slider_container {
   transform: rotate(-90deg); }
 
-.slider.vertical [type="range"].interactive::-webkit-slider-thumb {
+.slider.vertical.interactive [type="range"]::-webkit-slider-thumb {
   transform: rotate(90deg) scale(1); }
 
-.slider.vertical [type="range"].interactive:active::-webkit-slider-thumb {
+.slider.vertical.interactive [type="range"]:active::-webkit-slider-thumb {
   transform: rotate(90deg) scale(0.9); }
 
 #module_boop {
