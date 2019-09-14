@@ -581,6 +581,25 @@ nav ul {
   #screen_landing [src*="/img/barnship"] {
     height: 20vh; }
 
+#role_allocation strong {
+  color: var(--yellow); }
+
+#role_allocation h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 3rem;
+  line-height: 1; }
+  #role_allocation h2 strong {
+    display: block;
+    font-size: 3rem; }
+
+#role_allocation p {
+  text-align: center;
+  font-size: 1.5rem;
+  font-size: 500;
+  margin-bottom: 1rem; }
+
 #screen_score h2 {
   text-align: center;
   font-size: 4rem; }
