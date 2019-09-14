@@ -1,4 +1,24 @@
+## Install
+
+### Requirements
+
+Have Node `8.12` or greater. Use [NVM](https://nvm.sh) for happy times.
+
+### Installing node packages
+
+```bash
+npm i
+```
+
 ## Starting the dev environment
+
+### Sass watching
+
+```bash
+npm start
+```
+
+### Webserver
 
 To work out what version of python you have:
 

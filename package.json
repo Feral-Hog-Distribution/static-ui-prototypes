@@ -1,0 +1,22 @@
+{
+  "name": "static-ui-prototypes",
+  "version": "1.0.0",
+  "description": "Static UI prototypes of the Feral Hog Distribution client",
+  "scripts": {
+    "sass": "node-sass scss/client.scss -o css -w",
+    "start": "npm run sass"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Feral-Hog-Distribution/static-ui-prototypes.git"
+  },
+  "author": "https://github.com/orgs/Feral-Hog-Distribution/people",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Feral-Hog-Distribution/static-ui-prototypes/issues"
+  },
+  "homepage": "https://github.com/Feral-Hog-Distribution/static-ui-prototypes#readme",
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  }
+}
