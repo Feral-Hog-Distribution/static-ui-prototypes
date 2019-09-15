@@ -2,54 +2,69 @@
 <link rel="stylesheet" href="/css/client.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <main>
-  <form id="module_range" class="module" action="#ranged">
+  <form id="module_multi-range" class="module" action="#ranged">
     <div class="row">
       <div class="column">
-        <button type="button" name="input" value="-1">UP</button>
-        <div class="range_container">
-          <input class="field_range" type="range" min="0" max="100">
+        <div class="display_number">
+          <span>6</span>
         </div>
-        <button type="button" name="input" value="1">DOWN</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column">
+        <div class="slider vertical interactive" data-counter="after" data-steps="5" data-min="1" data-max="5">
+          <div class="slider_container">
+            <input type="range" min="1" max="5">
+          </div>
+          <ul class="slider_counter">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+          </ul>
+        </div>
       </div>
       <div class="column">
-        <button type="button" name="input" value="-1">UP</button>
-        <div class="range_container">
-          <input class="field_range" type="range" min="0" max="100">
+        <div class="slider vertical interactive" data-steps="5" data-min="1" data-max="5">
+          <div class="slider_container">
+            <input type="range" min="1" max="5">
+          </div>
         </div>
-        <button type="button" name="input" value="1">DOWN</button>
-      </div>
-      <div class="column">
-        <button type="button" name="input" value="-1">UP</button>
-        <div class="range_container">
-          <input class="field_range" type="range" min="0" max="100">
-        </div>
-        <button type="button" name="input" value="1">DOWN</button>
       </div>
     </div>
   </form>
   <script>
-    let form = document.querySelector('#module_range');
+    let multiRange = document.querySelector('#module_multi-range');
+    let currentValue = null;
+    let noOpFlag = true;
 
-    function handleClicks(event) {
-      let elem = event.target;
-      if (elem.matches('button')) {
-        moveRange(elem);
-      }
+    function noOp(event) {
+      noOpFlag = true;
+      event.preventDefault();
     }
 
-    function moveRange(elem) {
-      let field_range = elem.parentNode.querySelector('.field_range');
-      let currentValue = parseInt(field_range.value);
-      currentValue += parseInt(elem.value);
-      field_range.value = currentValue;
+    function mouseDown(event) {
+      if (!event.target.matches('[type="range"]')) return;
+
+      currentValue = event.target.value;
+      noOpFlag = false;
+      setTimeout(function(){
+        multiRange.removeEventListener('input', noOp);
+      }, 50);
     }
 
-    function checkForNoOp(event) {
-      if (event.target.matches('[type="range"]')) event.preventDefault();
+    function change(event) {
+      if (!event.target.matches('[type="range"]')) return;
+      setTimeout(function(){
+        if (noOpFlag) event.target.value = currentValue;
+        multiRange.addEventListener('input', noOp);
+        noOpFlag = true;
+      }, 100);
     }
 
-    form.addEventListener('click', handleClicks);
-    form.addEventListener('mousedown', checkForNoOp);
-    form.addEventListener('touchstart', checkForNoOp);
+    multiRange.addEventListener('input', noOp);
+    multiRange.addEventListener('change', change);
+    multiRange.addEventListener('mousedown', mouseDown);
   </script>
 </main>

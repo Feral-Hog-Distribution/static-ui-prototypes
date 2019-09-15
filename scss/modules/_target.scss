@@ -1,3 +1,6 @@
+@import "../config/mixins";
+@import "../config/abstractions";
+
 $screen_width: 75vw;
 
 #module_target {
@@ -16,6 +19,7 @@ $screen_width: 75vw;
   padding-right: var(--container-padding-horizontal);
   padding-bottom: var(--container-padding-vertical);
   padding-left: var(--container-padding-horizontal);
+
 
   button {
     position: absolute;
