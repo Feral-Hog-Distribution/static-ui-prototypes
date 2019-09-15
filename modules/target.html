@@ -9,12 +9,74 @@
       <button type="button" class="arrow" data-direction="w" name="x" value="-1"><span>Left</span></button>
       <button type="button" class="arrow" data-direction="e" name="x" value="1"><span>Right</span></button>
       <div class="target_screen">
-        <div class="target_reticle"></div>
         <div class="target"></div>
+        <div class="target_reticle"></div>
       </div>
     </div>
   </form>
   <script>
+    let target_container = document.querySelector('.target_container'),
+        moduleTarget = document.querySelector('#module_target'),
+        reticle = document.querySelector('.target_reticle'),
+        target = document.querySelector('.target'),
+        reticleX = 50,
+        reticleY = 50,
+        targetX = 0,
+        targetY = 0,
+        distanceModifier = 5;
 
+    function success() {
+      moduleTarget.removeEventListener('click', handleButtonClick);
+      target.style.transitionDelay = '0.5s';
+      target.style.transitionDuration = '2s';
+      target.style.opacity = 0;
+      target.style.transform = 'scale(0)';
+    }
+
+    function changePosition(orientation, distance) {
+      let appliedDistance = distance * distanceModifier;
+      if (orientation === 'x') reticleX += parseInt(appliedDistance);
+      if (orientation === 'y') reticleY += parseInt(appliedDistance);
+      setReticlePosition();
+    }
+
+    function setTargetPosition() {
+      target.style.top = targetY + '%';
+      target.style.left = targetX + '%';
+    }
+
+    function getIntervalFromRandom() {
+      let randomPercent = Math.ceil(Math.random(0,100) * 100);
+      return randomPercent - (randomPercent % distanceModifier) + (randomPercent % distanceModifier > 0 && distanceModifier);
+    }
+
+    function setTargetRandomPosition() {
+      targetX = getIntervalFromRandom();
+      targetY = getIntervalFromRandom();
+    }
+
+    function setReticlePosition() {
+      reticle.style.top = reticleY + '%';
+      reticle.style.left = reticleX + '%';
+
+      if (reticleX == targetX && reticleY == targetY) {
+        success();
+      }
+    }
+
+    function handleButtonClick(event) {
+      let elem = event.target;
+      if (elem.matches('.arrow')) {
+        let orientation = elem.name;
+        let distance = elem.value;
+        changePosition(orientation, distance);
+      }
+    }
+
+    setTargetRandomPosition();
+    setTargetPosition();
+    setReticlePosition();
+
+    moduleTarget.addEventListener('click', handleButtonClick);
   </script>
 </main>
