@@ -1,11 +1,7 @@
 #module_boop {
-  display: flex;
-  height: 100%;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
+  position: relative;
 
-  .chonk {
+  #chonk {
     font-size: 0;
     display: block;
     position: absolute;
@@ -16,6 +12,12 @@
     width: 312px;
     height: 214px;
     left: calc(50% - (312px/2));
+
+    &.booped {
+      width: 302px;
+      left: calc(50% - (302px/2));
+      background-image: url(/img/happy_hog.svg);
+    }
   }
 
   button {
@@ -39,13 +41,11 @@
       transform: scale(1);
       top: 126px;
 
-      &+ .chonk {
+      &+ #chonk {
         width: 302px;
         left: calc(50% - (302px/2));
         background-image: url(/img/happy_hog.svg);
       }
     }
   }
-
-
 }
