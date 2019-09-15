@@ -172,11 +172,14 @@ button.circular, .target_screen {
 img {
   max-width: 100%; }
 
+body {
+  position: relative;
+  background-color: var(--black); }
+
 main {
   width: 100vw;
   height: 100vh;
-  background-color: var(--black);
-  color: var(--white);
+  background: transparent;
   padding: 1rem; }
 
 button {
@@ -300,7 +303,7 @@ button.add::before {
   transform: translate(-50%, -50%); }
 
 body > header {
-  background-color: var(--black);
+  background: transparent;
   text-align: right; }
   body > header img {
     padding: 1rem;
@@ -650,6 +653,15 @@ nav ul {
     stroke-width: 1; }
   100% {
     stroke-width: 25; } }
+
+canvas {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0.5; }
 
 circle {
   fill: var(--yellow);
